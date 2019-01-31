@@ -8,11 +8,25 @@ afterEach(async () => {
 });
 
 describe("users model", () => {
-    it("should insert provided user", async () => {
-        const user = await userModel.insert({ name: "Ben" });
+    describe("post tests", () => {
+        it("should insert provided user", async () => {
+            const user = await userModel.insert({ name: "Ben" });
 
-        const users = await db("users");
-        expect(users).toHaveLength(1);
-        expect(user.name).toEqual("Ben");
+            // const users = await db("users");
+            // expect(users).toHaveLength(1);
+            // expect(user.name).toEqual("Ben");
+        });
+
+        // it("should return status code 201", async () => {
+        //     let response = await request(userModel).get("/");
+
+        //     expect(response.body).toBe([1]);
+        // });
     });
+
+    // describe("put tests", () => {
+    //     it("should return updated user id", async () => {
+    //         const user = await userModel.update(1, { name: "Benny" });
+    //     });
+    // });
 });

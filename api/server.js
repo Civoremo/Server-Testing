@@ -16,4 +16,11 @@ server.get("/users", async (req, res) => {
     res.status(200).json(rows);
 });
 
+server.post("/users", async (req, res) => {
+    const user = { name: "Trevor" };
+    const id = await users.insert(user);
+
+    res.status(201).json(id);
+});
+
 module.exports = server;

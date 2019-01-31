@@ -9,15 +9,18 @@ module.exports = {
 };
 
 async function insert(user) {
-    const [id] = await db("users").insert(user);
+    const [id] = await db("users").insert({ name: user.name });
 
     return db("users")
         .where({ id })
         .first();
 }
 
-async function update(id) {
-    return null;
+async function update(userid, user) {
+    const [id] = await db("users")
+        .where(userid)
+        .update(user);
+    return id;
 }
 
 async function remove(id) {

@@ -1,6 +1,6 @@
 const express = require("express");
 
-const users = require("../users/usersModel.js");
+const users = require("../data/users/usersModel.js");
 
 const server = express();
 

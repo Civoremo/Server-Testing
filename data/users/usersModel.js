@@ -1,4 +1,4 @@
-const db = require("../data/dbConfig.js");
+const db = require("../dbConfig.js");
 
 module.exports = {
     insert,
@@ -9,7 +9,11 @@ module.exports = {
 };
 
 async function insert(user) {
-    return null;
+    const [id] = await db("users").insert(user);
+
+    return db("users")
+        .where({ id })
+        .first();
 }
 
 async function update(id) {
